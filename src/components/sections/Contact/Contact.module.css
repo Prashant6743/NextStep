@@ -1,0 +1,317 @@
+.section {
+  position: relative;
+  padding: 120px 0 120px;
+  overflow: hidden;
+  background: var(--bg-primary);
+  z-index: 2;
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 100%);
+  pointer-events: none;
+}
+
+.bgOrb {
+  position: absolute;
+  top: 10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.14) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bgOrb2 {
+  position: absolute;
+  bottom: -10%;
+  right: -8%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+  color: var(--white);
+  line-height: 1.15;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--gray-400);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Info column */
+.infoCard {
+  background: var(--bg-card);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  backdrop-filter: blur(12px);
+  height: 100%;
+}
+
+.infoTitle {
+  font-size: 1.25rem;
+  margin-bottom: 28px;
+  color: var(--white);
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.infoItem {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.infoIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-400);
+  flex-shrink: 0;
+}
+
+.infoDetails h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.infoDetails a {
+  color: var(--purple-300);
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.infoDetails a:hover {
+  color: var(--white);
+}
+
+.infoNote {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+}
+
+.whatsappBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.whatsappBtn:hover {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.55);
+  transform: translateY(-2px);
+}
+
+.socialSection {
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.socialTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.socialGrid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.socialBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  transition: var(--transition);
+}
+
+.socialBtn:hover {
+  background: rgba(124, 58, 237, 0.15);
+  border-color: var(--purple-400);
+  color: var(--purple-300);
+  transform: translateY(-2px);
+}
+
+/* CTA Column with illustration */
+.ctaColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.illustrationWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* No background — image floats free */
+}
+
+.illustration {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  border-radius: 0;
+  background: transparent;
+  /* Fade edges into page background */
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 80% at 50% 50%,
+    black 40%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 85% 80% at 50% 50%,
+    black 40%,
+    transparent 100%
+  );
+  filter: drop-shadow(0 8px 48px rgba(124, 58, 237, 0.18));
+}
+
+.illustrationGlow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.25) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+  animation: illustrationPulse 4s ease-in-out infinite;
+}
+
+@keyframes illustrationPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+.ctaCard {
+  background: rgba(124, 58, 237, 0.06);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.ctaCardTitle {
+  font-size: 1.3rem;
+  font-family: var(--font-heading);
+  color: var(--white);
+}
+
+.ctaCardDesc {
+  font-size: 0.95rem;
+  color: var(--gray-400);
+  line-height: 1.7;
+  max-width: 380px;
+}
+
+.ctaFormBtn {
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .section {
+    padding: 80px 0 100px;
+  }
+
+  .illustration {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .infoCard {
+    padding: 24px;
+  }
+
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .ctaCard {
+    padding: 24px 20px;
+  }
+}

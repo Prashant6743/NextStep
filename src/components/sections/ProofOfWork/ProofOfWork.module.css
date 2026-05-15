@@ -1,0 +1,334 @@
+.section {
+  position: relative;
+  z-index: 2;
+  padding: 80px 0;
+}
+
+.bgGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 800px;
+  background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-family: var(--font-heading);
+  color: var(--white);
+  margin: 16px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  font-size: 1.05rem;
+  color: var(--gray-400);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Bento Grid ── */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.bentoCard {
+  background: rgba(255,255,255,0.015);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.bentoCard:hover {
+  border-color: rgba(255,255,255,0.15);
+}
+
+.cardHeader {
+  margin-bottom: 24px;
+  z-index: 1;
+  position: relative;
+}
+
+.platformTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid;
+  margin-bottom: 16px;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-family: var(--font-heading);
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ── Specific Cards ── */
+.cardLinkedin { grid-column: span 8; }
+.cardYoutube { grid-column: span 4; }
+.cardTwitter { grid-column: span 4; display: flex; flex-direction: column; justify-content: space-between; }
+.cardResume { grid-column: span 8; }
+.cardReport, .cardStrategy { 
+  grid-column: span 6; 
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+}
+
+/* LinkedIn */
+.liGallery {
+  margin-top: auto;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+.liTrack {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: scrollX 20s linear infinite;
+}
+.liImgWrap {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.liImg {
+  object-fit: cover;
+}
+@keyframes scrollX {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% / 2 - 8px)); }
+}
+
+/* YouTube */
+.ytContent {
+  margin-top: auto;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.ytImgWrap {
+  position: absolute;
+  inset: 0;
+}
+.ytImg {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.cardYoutube:hover .ytImg {
+  transform: scale(1.05);
+}
+.ytOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+/* Twitter */
+.twGlow {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  filter: blur(20px);
+}
+.twLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  color: var(--bg-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 12px;
+  width: fit-content;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+.twLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+}
+
+/* Resume */
+.resumeControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.tabs {
+  display: flex;
+  gap: 8px;
+  background: rgba(255,255,255,0.03);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.tab {
+  background: none;
+  border: none;
+  color: var(--gray-400);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.tabActive {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+}
+
+.toggleWrap {
+  display: flex;
+  gap: 4px;
+  background: rgba(0,0,0,0.3);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.toggleBtn {
+  background: none;
+  border: none;
+  color: var(--gray-400);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.toggleActive {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+}
+.afterBtn.toggleActive {
+  background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(168,85,247,0.2));
+  color: var(--purple-300);
+  border: 1px solid rgba(168,85,247,0.3);
+}
+
+.resumeDisplay {
+  margin-top: 24px;
+  background: rgba(0,0,0,0.2);
+  border: 1px dashed rgba(255,255,255,0.1);
+  border-radius: 16px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.docLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--gray-300);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.docLink:hover {
+  transform: translateY(-2px);
+  color: var(--white);
+}
+.docLinkAfter {
+  color: var(--white);
+}
+.downloadText {
+  font-size: 0.8rem;
+  color: var(--purple-400);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+}
+.docLink:hover .downloadText {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reports */
+.reportContent { flex: 1; }
+.reportImgWrap {
+  flex: 1.2;
+  position: relative;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.2);
+}
+.reportImg {
+  object-fit: contain;
+  padding: 10px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .bentoGrid { grid-template-columns: 1fr; }
+  .cardLinkedin, .cardYoutube, .cardTwitter, .cardResume, .cardReport, .cardStrategy { grid-column: span 1; }
+  .reportImgWrap { height: 240px; width: 100%; margin-top: 24px; }
+  .liGallery { margin-top: 24px; }
+  .resumeControls { flex-direction: column; align-items: flex-start; }
+}

@@ -1,0 +1,608 @@
+/* ── Page Shell ── */
+.page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 120px;
+}
+
+/* ── Ambient Orbs ── */
+.orb1 {
+  position: fixed;
+  top: -280px;
+  left: -200px;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.17) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+  animation: orbDrift1 14s ease-in-out infinite;
+}
+.orb2 {
+  position: fixed;
+  bottom: -260px;
+  right: -200px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.12) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+  animation: orbDrift2 18s ease-in-out infinite;
+}
+.orb3 {
+  position: fixed;
+  top: 55%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes orbDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -35px) scale(1.04); }
+}
+@keyframes orbDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 25px) scale(1.06); }
+}
+
+/* ── Grid ── */
+.gridOverlay {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 10%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 10%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Particles ── */
+.particleField {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  z-index: 2;
+  padding: 155px 0 90px;
+  text-align: center;
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--purple-400);
+  background: rgba(124,58,237,0.1);
+  border: 1px solid rgba(124,58,237,0.25);
+  padding: 7px 18px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+
+.heroBadgeDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-family: var(--font-heading);
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 20px;
+  letter-spacing: -0.03em;
+}
+
+.heroTitleGlow {
+  color: var(--white);
+  text-shadow: 0 0 40px rgba(139,92,246,0.6), 0 0 80px rgba(139,92,246,0.3);
+}
+
+.heroSub {
+  font-size: 1.1rem;
+  color: var(--gray-400);
+  max-width: 580px;
+  margin: 0 auto 32px;
+  line-height: 1.8;
+}
+
+.heroActions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.heroStats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.heroStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+.heroStat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 36px;
+  background: rgba(124,58,237,0.2);
+}
+
+.heroStatValue {
+  font-size: 1.8rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.heroStatLabel {
+  font-size: 0.78rem;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+/* ── Section Header ── */
+.servicesSection {
+  position: relative;
+  z-index: 2;
+  padding: 0 0 80px;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-family: var(--font-heading);
+  color: var(--white);
+  margin: 10px 0 14px;
+}
+
+.sectionSub {
+  font-size: 1rem;
+  color: var(--gray-400);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* ── Cards Grid ── */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 24px;
+}
+
+/* ── Service Card ── */
+.card {
+  position: relative;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 24px;
+  padding: 34px 30px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  border-color: rgba(124,58,237,0.35);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 40px rgba(124,58,237,0.07);
+}
+
+.card:hover .cardGlowBorder {
+  opacity: 1;
+}
+
+.cardGlowBorder {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.cardBadge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.cardIcon {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover .cardIcon {
+  box-shadow: 0 0 24px currentColor;
+}
+
+.cardIconGlow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  filter: blur(12px);
+  z-index: 0;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-family: var(--font-heading);
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: var(--gray-400);
+  line-height: 1.72;
+  flex: 1;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  border: 1px solid;
+  padding: 3px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+}
+
+.cardStat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 5px 12px;
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.cardCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  transition: gap 0.2s ease, opacity 0.2s ease;
+  margin-top: 2px;
+}
+
+.cardCta:hover {
+  gap: 9px;
+}
+
+.cardAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform-origin: left;
+  border-radius: 0 0 24px 24px;
+}
+
+/* ── Gallery / Marquee ── */
+.gallerySection {
+  position: relative;
+  z-index: 2;
+  padding: 0 0 120px;
+}
+
+/* The full-bleed angled stage */
+.marqueeStage {
+  position: relative;
+  margin-top: 48px;
+  /* Extra vertical room so rotated rows don't clip */
+  padding: 48px 0;
+  overflow: hidden;
+}
+
+/* Left/right side fades */
+.marqueeFade {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  background: linear-gradient(90deg, var(--bg-primary) 40%, transparent);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.marqueeFadeRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  background: linear-gradient(270deg, var(--bg-primary) 40%, transparent);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* Top/bottom fades so angled rows don't look cut off */
+.stageFadeTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--bg-primary), transparent);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.stageFadeBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to top, var(--bg-primary), transparent);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.marqueeRows {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual row wrapper — allows per-row rotation */
+.marqueeRowWrap {
+  transform-origin: center center;
+  /* Scale slightly wider than viewport so rotated ends don't expose gap */
+  width: 110%;
+  margin-left: -5%;
+}
+
+.marqueeTrack {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marqueeInner {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  align-items: center;
+}
+
+/* Gallery card */
+.galleryCard {
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.galleryCard:hover {
+  border-color: rgba(124,58,237,0.55);
+  box-shadow: 0 8px 32px rgba(124,58,237,0.25), 0 0 0 1px rgba(124,58,237,0.2);
+}
+
+.galleryImg {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.galleryCard:hover .galleryImg {
+  transform: scale(1.08);
+}
+
+.galleryOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5,0,20,0.85) 0%,
+    rgba(124,58,237,0.15) 50%,
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 12px 14px;
+}
+
+.galleryCard:hover .galleryOverlay {
+  opacity: 1;
+}
+
+.galleryLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(124,58,237,0.7);
+  border: 1px solid rgba(168,85,247,0.5);
+  padding: 3px 10px;
+  border-radius: 100px;
+  backdrop-filter: blur(4px);
+}
+
+/* ── CTA ── */
+.cta {
+  position: relative;
+  z-index: 2;
+}
+
+.ctaBox {
+  position: relative;
+  background: rgba(124,58,237,0.06);
+  border: 1px solid rgba(124,58,237,0.18);
+  border-radius: 32px;
+  padding: 80px 48px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.ctaGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(124,58,237,0.18), transparent);
+  pointer-events: none;
+}
+
+.ctaOrb {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 65%);
+  pointer-events: none;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ctaIcon {
+  color: var(--purple-400);
+  position: relative;
+  z-index: 1;
+}
+
+.ctaTitle {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-family: var(--font-heading);
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.ctaSub {
+  font-size: 1.05rem;
+  color: var(--gray-400);
+  max-width: 500px;
+  line-height: 1.75;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero { padding: 130px 0 70px; }
+  .heroStats { gap: 28px; }
+  .heroStat:not(:last-child)::after { right: -14px; }
+  .cardsGrid { grid-template-columns: 1fr; }
+  .ctaBox { padding: 56px 24px; }
+  .marqueeRowWrap { width: 120%; margin-left: -10%; }
+}
+
+@media (max-width: 600px) {
+  .heroTitle { font-size: 2.6rem; }
+  .heroStats { gap: 18px; }
+  .heroStat:not(:last-child)::after { display: none; }
+  .heroActions { flex-direction: column; align-items: center; }
+}
+
