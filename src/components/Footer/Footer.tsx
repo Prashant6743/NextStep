@@ -57,7 +57,7 @@ export default function Footer() {
                   alt="Nextstep Careers" 
                   width={240} 
                   height={65} 
-                  style={{ objectFit: 'contain', height: '60px', width: 'auto', transform: 'rotate(-90deg) scale(3)' }} 
+                  className={styles.logoImg}
                 />
               </Link>
               <p className={styles.tagline}>

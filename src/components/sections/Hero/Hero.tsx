@@ -37,7 +37,7 @@ const fadeUp = (delay = 0) => ({
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.75, delay, ease: [0.4, 0, 0.2, 1] },
+    transition: { duration: 0.75, delay, ease: [0.4, 0, 0.2, 1] as const },
   },
 });
 
@@ -54,7 +54,7 @@ export default function Hero() {
 
   const glassY = useTransform(scrollYProgress, [0, 1], [0, -70]);
   const glassRotate = useTransform(scrollYProgress, [0, 1], [0, 10]);
-  const glassScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.08]);
+  const glassScale = useTransform(scrollYProgress, [0, 0.5], [1, 1 + 0.08 * 6]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 40]);
   const bgOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0.4]);
 

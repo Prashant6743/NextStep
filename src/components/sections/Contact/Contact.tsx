@@ -22,7 +22,7 @@ const fadeUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
+    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] as const },
   },
 };
 
@@ -77,7 +77,7 @@ export default function Contact() {
             initial={{ opacity: 0, scale: 0.92 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] as const }}
           >
             <div className={styles.illustrationWrap}>
               <Image
