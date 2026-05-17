@@ -370,6 +370,20 @@
   text-align: center;
 }
 
+/* Field-level validation */
+.inputError {
+  border-color: rgba(239, 68, 68, 0.7) !important;
+  background: rgba(239, 68, 68, 0.05) !important;
+}
+
+.fieldError {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.78rem;
+  color: #f87171;
+  font-weight: 500;
+}
+
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;

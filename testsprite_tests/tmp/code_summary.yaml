@@ -1,0 +1,73 @@
+version: "2"
+type: frontend
+tech_stack:
+  - React
+  - Next.js (App Router)
+  - TypeScript
+  - Tailwind CSS
+  - Framer Motion
+  - EmailJS
+routes:
+  - path: /
+    file: src/app/page.tsx
+    auth_required: false
+    description: Landing page with hero section, stats, proof of work, testimonials, FAQ, and contact
+  - path: /about
+    file: src/app/about/page.tsx
+    auth_required: false
+    description: Information about Nextstep Careers
+  - path: /services
+    file: src/app/services/page.tsx
+    auth_required: false
+    description: Services provided by Nextstep Careers
+  - path: /portfolio
+    file: src/app/portfolio/page.tsx
+    auth_required: false
+    description: Portfolio of past work and success stories
+  - path: /process
+    file: src/app/process/page.tsx
+    auth_required: false
+    description: The process and methodology used by Nextstep Careers
+  - path: /pricing
+    file: src/app/pricing/page.tsx
+    auth_required: false
+    description: Pricing plans and packages
+  - path: /contact
+    file: src/app/contact/page.tsx
+    auth_required: false
+    description: Contact page with form to reach out to the team
+features:
+  - name: Contact Form Submission
+    description: Contact form allowing users to send inquiries via EmailJS
+    files:
+      - src/app/contact/page.tsx
+    entry_route: /contact
+    user_interactions:
+      - Fill in name input field
+      - Fill in email input field
+      - Fill in message text area
+      - Click "Send Message" button
+      - See success or error feedback message
+    api_calls:
+      - method: POST
+        endpoint: https://api.emailjs.com/api/v1.0/email/send
+    auth_required: false
+  - name: Global Navigation
+    description: Responsive navigation bar to move across the site
+    files:
+      - src/components/Navbar/Navbar.tsx
+    entry_route: /
+    user_interactions:
+      - Click on "About", "Services", "Portfolio", "Process", "Pricing", "Contact", "Testimonials" links
+      - Click on "Get Started" CTA button
+    auth_required: false
+  - name: Proof Of Work / Testimonials
+    description: Showcase past results, testimonials, and YouTube growth stats
+    files:
+      - src/components/sections/ProofOfWork/ProofOfWork.tsx
+    entry_route: /
+    user_interactions:
+      - Scroll to section
+      - Toggle between Before and After views for resumes
+    auth_required: false
+known_limitations: []

@@ -136,15 +136,34 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Partial<Record<keyof FormData, string>>>({});
+
+  const validate = (): boolean => {
+    const errors: Partial<Record<keyof FormData, string>> = {};
+    if (!form.name.trim()) errors.name = 'Full Name is required.';
+    if (!form.email.trim()) {
+      errors.email = 'Email Address is required.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      errors.email = 'Please enter a valid email address.';
+    }
+    if (!form.audience) errors.audience = 'Please select your profile type.';
+    if (!form.service) errors.service = 'Please select a service.';
+    if (!form.message.trim()) errors.message = 'Message is required.';
+    setFieldErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
 
   const update = (field: keyof FormData, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
+    // Clear the error for this field as user types
+    if (fieldErrors[field]) setFieldErrors((prev) => ({ ...prev, [field]: undefined }));
     if (submitted) setSubmitted(false);
     if (error) setError(null);
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!validate()) return; // Block submission if validation fails
     setSubmitting(true);
     setError(null);
 
@@ -331,13 +350,16 @@ export default function ContactPage() {
                         type="text"
                         id="name"
                         name="name"
-                        className={styles.input}
+                        className={`${styles.input} ${fieldErrors.name ? styles.inputError : ''}`}
                         placeholder="John Doe"
                         value={form.name}
                         onChange={(e) => update('name', e.target.value)}
-                        required
                         autoComplete="name"
+                        aria-describedby={fieldErrors.name ? 'name-error' : undefined}
                       />
+                      {fieldErrors.name && (
+                        <span id="name-error" className={styles.fieldError} role="alert">{fieldErrors.name}</span>
+                      )}
                     </div>
 
                     <div className={styles.formGroup}>
@@ -348,13 +370,16 @@ export default function ContactPage() {
                         type="email"
                         id="email"
                         name="email"
-                        className={styles.input}
+                        className={`${styles.input} ${fieldErrors.email ? styles.inputError : ''}`}
                         placeholder="john@example.com"
                         value={form.email}
                         onChange={(e) => update('email', e.target.value)}
-                        required
                         autoComplete="email"
+                        aria-describedby={fieldErrors.email ? 'email-error' : undefined}
                       />
+                      {fieldErrors.email && (
+                        <span id="email-error" className={styles.fieldError} role="alert">{fieldErrors.email}</span>
+                      )}
                     </div>
 
                     <div className={styles.formGroup}>
@@ -380,10 +405,10 @@ export default function ContactPage() {
                       <select
                         id="audience"
                         name="audience"
-                        className={styles.select}
+                        className={`${styles.select} ${fieldErrors.audience ? styles.inputError : ''}`}
                         value={form.audience}
                         onChange={(e) => update('audience', e.target.value)}
-                        required
+                        aria-describedby={fieldErrors.audience ? 'audience-error' : undefined}
                       >
                         <option value="" disabled>
                           Select your profile
@@ -394,6 +419,9 @@ export default function ContactPage() {
                           </option>
                         ))}
                       </select>
+                      {fieldErrors.audience && (
+                        <span id="audience-error" className={styles.fieldError} role="alert">{fieldErrors.audience}</span>
+                      )}
                     </div>
 
                     <div className={`${styles.formGroup} ${styles.fullWidth}`}>
@@ -403,10 +431,10 @@ export default function ContactPage() {
                       <select
                         id="service"
                         name="service"
-                        className={styles.select}
+                        className={`${styles.select} ${fieldErrors.service ? styles.inputError : ''}`}
                         value={form.service}
                         onChange={(e) => update('service', e.target.value)}
-                        required
+                        aria-describedby={fieldErrors.service ? 'service-error' : undefined}
                       >
                         <option value="" disabled>
                           Select a service
@@ -417,6 +445,9 @@ export default function ContactPage() {
                           </option>
                         ))}
                       </select>
+                      {fieldErrors.service && (
+                        <span id="service-error" className={styles.fieldError} role="alert">{fieldErrors.service}</span>
+                      )}
                     </div>
 
                     <div className={`${styles.formGroup} ${styles.fullWidth}`}>
@@ -426,12 +457,15 @@ export default function ContactPage() {
                       <textarea
                         id="message"
                         name="message"
-                        className={styles.textarea}
+                        className={`${styles.textarea} ${fieldErrors.message ? styles.inputError : ''}`}
                         placeholder="Tell us about your current career stage and what you're looking to achieve..."
                         value={form.message}
                         onChange={(e) => update('message', e.target.value)}
-                        required
+                        aria-describedby={fieldErrors.message ? 'message-error' : undefined}
                       />
+                      {fieldErrors.message && (
+                        <span id="message-error" className={styles.fieldError} role="alert">{fieldErrors.message}</span>
+                      )}
                     </div>
                   </div>
 

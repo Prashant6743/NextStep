@@ -62,15 +62,9 @@ export default function Footer() {
               </Link>
               <p className={styles.tagline}>
                 Build Better Presence. Create Better Opportunities. We transform
-                careers with strategy, branding, and powerful digital presence.
+                careers with strategy, branding.
               </p>
-              <div className={styles.socials}>
-                {socials.map(({ icon: Icon, href, label }) => (
-                  <a key={label} href={href} className={styles.socialBtn} aria-label={label}>
-                    <Icon size={16} />
-                  </a>
-                ))}
-              </div>
+              
             </div>
 
             {/* Services */}

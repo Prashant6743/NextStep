@@ -1,0 +1,503 @@
+[
+  {
+    "id": "TC001",
+    "title": "Homepage navigation reaches contact",
+    "description": "A visitor can use the global navigation from the homepage to open the contact page and start an inquiry.",
+    "category": "Global Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view the contact page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the contact page form is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Homepage navigation reaches the about page",
+    "description": "A visitor can use the global navigation from the homepage to open the about page and continue learning about the company.",
+    "category": "Global Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view the about page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the about page content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Submit a complete contact inquiry",
+    "description": "A visitor can fill out the contact form with valid details and receive confirmation that the inquiry was sent.",
+    "category": "Contact Form Submission",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the name field with Alex Johnson"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with alex.johnson@example.com"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the message field with I would like to learn more about your career services."
+      },
+      {
+        "type": "action",
+        "description": "Submit the contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a success confirmation is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Homepage navigation reaches services",
+    "description": "A visitor can use the global navigation from the homepage to open the services page and review what the company offers.",
+    "category": "Global Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view the services page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the services page content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Homepage CTA leads to the contact path",
+    "description": "A visitor can use the primary call to action on the homepage to move into the getting-started or contact path.",
+    "category": "Global Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the primary call to action"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the contact or getting-started destination is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Homepage navigation reaches pricing",
+    "description": "A visitor can use the global navigation from the homepage to open the pricing page and compare plans.",
+    "category": "Global Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view the pricing page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the pricing page content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Show validation when the form is submitted empty",
+    "description": "A visitor who submits the contact form without completing required fields sees validation feedback instead of a successful submission.",
+    "category": "Contact Form Submission",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "action",
+        "description": "Submit the contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify validation feedback is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the inquiry was not sent"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Homepage navigation reaches portfolio",
+    "description": "A visitor can use the global navigation from the homepage to open the portfolio page and review past work.",
+    "category": "Global Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view the portfolio page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the portfolio page content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Homepage navigation reaches process",
+    "description": "A visitor can use the global navigation from the homepage to open the process page and understand how the service is delivered.",
+    "category": "Global Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to view the process page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the process page content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Services page content can be reviewed",
+    "description": "A visitor can open the services page and understand the available career services.",
+    "category": "Company and Service Information Pages",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /services"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify services page content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Pricing page content can be reviewed",
+    "description": "A visitor can open the pricing page and compare the available plans.",
+    "category": "Company and Service Information Pages",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /pricing"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify pricing page content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "Require a name before submitting the contact form",
+    "description": "A visitor leaving the name field blank sees validation feedback and cannot submit the inquiry.",
+    "category": "Contact Form Submission",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with alex.johnson@example.com"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the message field with I would like to learn more about your career services."
+      },
+      {
+        "type": "action",
+        "description": "Submit the contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a validation error for the missing name is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC013",
+    "title": "Require an email before submitting the contact form",
+    "description": "A visitor leaving the email field blank sees validation feedback and cannot submit the inquiry.",
+    "category": "Contact Form Submission",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the name field with Alex Johnson"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the message field with I would like to learn more about your career services."
+      },
+      {
+        "type": "action",
+        "description": "Submit the contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a validation error for the missing email is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC014",
+    "title": "Homepage proof-of-work section is discoverable",
+    "description": "A visitor can scroll through the homepage to find proof-of-work, testimonials, and performance stats that support credibility.",
+    "category": "Portfolio and Social Proof",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the proof-of-work section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify testimonials and performance stats are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC015",
+    "title": "Require a message before submitting the contact form",
+    "description": "A visitor leaving the message field blank sees validation feedback and cannot submit the inquiry.",
+    "category": "Contact Form Submission",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the name field with Alex Johnson"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with alex.johnson@example.com"
+      },
+      {
+        "type": "action",
+        "description": "Submit the contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a validation error for the missing message is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC016",
+    "title": "Portfolio page content can be reviewed",
+    "description": "A visitor can open the portfolio page and evaluate past work and success stories.",
+    "category": "Portfolio and Social Proof",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /portfolio"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify portfolio content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC017",
+    "title": "About page content can be reviewed",
+    "description": "A visitor can open the about page and learn the company background and mission.",
+    "category": "Company and Service Information Pages",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /about"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify about page content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC018",
+    "title": "Reject an invalid email format",
+    "description": "A visitor entering an invalid email address sees validation feedback and is prevented from submitting the inquiry.",
+    "category": "Contact Form Submission",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the name field with Alex Johnson"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with invalid-email"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the message field with I would like to learn more about your career services."
+      },
+      {
+        "type": "action",
+        "description": "Submit the contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an invalid email validation error is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC019",
+    "title": "Process page content can be reviewed",
+    "description": "A visitor can open the process page and understand the step-by-step methodology.",
+    "category": "Company and Service Information Pages",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /process"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify process page content is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC020",
+    "title": "Return to the form after a failed submission",
+    "description": "A visitor who sees validation feedback can correct the missing or invalid details and successfully submit the contact form.",
+    "category": "Contact Form Submission",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /contact"
+      },
+      {
+        "type": "action",
+        "description": "Submit the contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify validation feedback is visible"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the name field with Alex Johnson"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with alex.johnson@example.com"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the message field with I would like to learn more about your career services."
+      },
+      {
+        "type": "action",
+        "description": "Submit the contact form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a success confirmation is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC021",
+    "title": "Homepage before-and-after resume views can be compared",
+    "description": "A visitor can review the homepage resume comparison and switch between the before and after views to compare results.",
+    "category": "Portfolio and Social Proof",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the proof-of-work section"
+      },
+      {
+        "type": "action",
+        "description": "Select the before resume view"
+      },
+      {
+        "type": "action",
+        "description": "Select the after resume view"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify both resume comparison views are available"
+      }
+    ],
+    "priority": "Medium"
+  }
+]

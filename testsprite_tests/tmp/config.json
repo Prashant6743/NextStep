@@ -1,0 +1,17 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:5001",
+  "executionArgs": {
+    "projectName": "nextstep-careers",
+    "projectPath": "/Users/prashantkumar/iCloud Drive (Archive)/Desktop ofline /Client Works /NextStep v 02/nextstep-careers",
+    "testIds": [],
+    "additionalInstruction": "",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-l-r9_jOI1KVfxKO0PMq7CrThYJa8RUc3PmXuFSxntx4I_xWHtfj6klOtGk7VDi1RAXsl7EIruFSmYqcgqpQhWSo_qRhBn6xOM7qG3_l5qO38tNcRfsadKc6NrNiFxfE9MzU"
+    }
+  },
+  "serverPort": 56407
+}

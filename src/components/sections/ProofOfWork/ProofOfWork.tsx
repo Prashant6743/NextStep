@@ -22,9 +22,9 @@ export default function ProofOfWork() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className={styles.section} ref={ref}>
+    <section className={styles.section} id="testimonials" ref={ref}>
       <div className={styles.bgGlow} />
-      
+
       <div className="container">
         <motion.div
           className={styles.header}
@@ -42,9 +42,9 @@ export default function ProofOfWork() {
         </motion.div>
 
         <div className={styles.bentoGrid}>
-          
+
           {/* ── LinkedIn Growth ── */}
-          <motion.div 
+          <motion.div
             className={`${styles.bentoCard} ${styles.cardLinkedin}`}
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -56,7 +56,7 @@ export default function ProofOfWork() {
               </div>
               <h3 className={styles.cardTitle}>Massive Growth in 2 Weeks</h3>
             </div>
-            
+
             <div className={styles.liGallery}>
               <div className={styles.liTrack}>
                 {[...linkedInImages, ...linkedInImages].map((src, i) => (
@@ -69,7 +69,7 @@ export default function ProofOfWork() {
           </motion.div>
 
           {/* ── YouTube Growth ── */}
-          <motion.div 
+          <motion.div
             className={`${styles.bentoCard} ${styles.cardYoutube}`}
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -92,7 +92,7 @@ export default function ProofOfWork() {
           </motion.div>
 
           {/* ── Twitter/X Success ── */}
-          <motion.div 
+          <motion.div
             className={`${styles.bentoCard} ${styles.cardTwitter}`}
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -114,7 +114,7 @@ export default function ProofOfWork() {
           </motion.div>
 
           {/* ── Resume Transformations ── */}
-          <motion.div 
+          <motion.div
             className={`${styles.bentoCard} ${styles.cardResume}`}
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -125,16 +125,16 @@ export default function ProofOfWork() {
                 <FileText size={14} /> ATS Resume Rewrite
               </div>
               <h3 className={styles.cardTitle}>Before vs After</h3>
-              
+
               <div className={styles.resumeControls}>
                 <div className={styles.tabs}>
-                  <button 
+                  <button
                     className={`${styles.tab} ${activeResume === 'anshika' ? styles.tabActive : ''}`}
                     onClick={() => setActiveResume('anshika')}
                   >
                     Anshika
                   </button>
-                  <button 
+                  <button
                     className={`${styles.tab} ${activeResume === 'shree' ? styles.tabActive : ''}`}
                     onClick={() => setActiveResume('shree')}
                   >
@@ -142,13 +142,13 @@ export default function ProofOfWork() {
                   </button>
                 </div>
                 <div className={styles.toggleWrap}>
-                  <button 
+                  <button
                     className={`${styles.toggleBtn} ${resumeState === 'before' ? styles.toggleActive : ''}`}
                     onClick={() => setResumeState('before')}
                   >
                     Before
                   </button>
-                  <button 
+                  <button
                     className={`${styles.toggleBtn} ${resumeState === 'after' ? styles.toggleActive : ''} ${styles.afterBtn}`}
                     onClick={() => setResumeState('after')}
                   >
@@ -192,7 +192,7 @@ export default function ProofOfWork() {
           </motion.div>
 
           {/* ── Weekly Reports ── */}
-          <motion.div 
+          <motion.div
             className={`${styles.bentoCard} ${styles.cardReport}`}
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -215,7 +215,7 @@ export default function ProofOfWork() {
           </motion.div>
 
           {/* ── Strategy Docs ── */}
-          <motion.div 
+          <motion.div
             className={`${styles.bentoCard} ${styles.cardStrategy}`}
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

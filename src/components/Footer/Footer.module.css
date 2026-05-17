@@ -49,6 +49,8 @@
   color: var(--white);
   margin-bottom: 16px;
   text-decoration: none;
+  padding-left: 75px;
+  padding-bottom: 20px;
 }
 
 .logoMark {
