@@ -49,7 +49,7 @@
   pointer-events: none;
 }
 
-/* ── Liquid glass: static, no JS, no shimmer filter ── */
+/* ── Liquid glass: scroll-driven scale, zero JS ── */
 .glassWrap {
   position: absolute;
   top: 50%;
@@ -59,6 +59,7 @@
   z-index: 1;
 }
 
+/* Scale up as user scrolls — CSS scroll-driven animation (off main thread) */
 .glassImg {
   width: 500px;
   height: 500px;
@@ -66,6 +67,11 @@
   opacity: 0.2;
   filter: drop-shadow(0 0 60px rgba(124, 58, 237, 0.28));
   user-select: none;
+  transform-origin: center center;
+  /* scroll-driven: scale 1 → 1.55 over the first viewport height */
+  animation: glassScrollScale linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0px 100vh;
 }
 
 @media (min-width: 768px) {
@@ -358,6 +364,11 @@
   color: var(--gray-600);
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+@keyframes glassScrollScale {
+  from { transform: scale(1); }
+  to   { transform: scale(1.55); }
 }
 
 /* ── Animations — all CSS, GPU-composited (transform/opacity only) ── */
