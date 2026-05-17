@@ -14,18 +14,12 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     <ReactLenis
       root
       options={{
-        lerp: 0.085,
-        duration: 1.35,
-        easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
+        lerp: 0.12,
+        duration: 1.0,
         smoothWheel: true,
-        wheelMultiplier: 0.9,
-        touchMultiplier: 1.4,
+        wheelMultiplier: 1.0,
+        touchMultiplier: 1.8,
         infinite: false,
-        anchors: {
-          offset: NAV_OFFSET,
-          duration: 1.4,
-          easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
-        },
       }}
     >
       {children}

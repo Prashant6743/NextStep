@@ -103,6 +103,21 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
+/* Performance: reduce layout thrashing */
+section {
+  contain: layout style;
+}
+
+/* Respect user preference — cut all animation for accessibility + perf */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 ::-webkit-scrollbar { width: 5px; }
@@ -197,45 +212,4 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.75;
 }
 
-/* ── Hero Keyframes ── */
-@keyframes orbFloat1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(20px, -25px) scale(1.04); }
-}
-@keyframes orbFloat2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-20px, 20px) scale(1.06); }
-}
-@keyframes pulse-dot {
-  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
-  70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-}
-@keyframes particleFade {
-  0% { opacity: 0; transform: translateY(0); }
-  20% { opacity: 0.7; }
-  80% { opacity: 0.5; }
-  100% { opacity: 0; transform: translateY(-60px); }
-}
-@keyframes scrollWheel {
-  0% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(10px); }
-}
-@keyframes ticker-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes glow-ring-pulse {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 0.35; }
-}
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-@keyframes glass-shimmer {
-  0% { filter: hue-rotate(0deg) brightness(1); }
-  50% { filter: hue-rotate(15deg) brightness(1.1); }
-  100% { filter: hue-rotate(0deg) brightness(1); }
-}
+/* Note: hero-specific keyframes live in Hero.module.css */

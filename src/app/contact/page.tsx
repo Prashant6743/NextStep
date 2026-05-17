@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion, type Variants } from 'framer-motion';
 import {
   Mail,
@@ -134,23 +135,52 @@ export default function ContactPage() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const update = (field: keyof FormData, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
     if (submitted) setSubmitted(false);
+    if (error) setError(null);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
+    setError(null);
 
-    const body = encodeURIComponent(buildWhatsAppMessage(form));
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${body}`;
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
 
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    setSubmitted(true);
-    setSubmitting(false);
-    setForm(initialForm);
+    const serviceLabel =
+      SERVICES.find((s) => s.value === form.service)?.label ?? form.service;
+    const audienceLabel =
+      AUDIENCES.find((a) => a.value === form.audience)?.label ?? form.audience;
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          phone: form.phone || 'Not provided',
+          audience: audienceLabel,
+          service: serviceLabel,
+          message: form.message,
+          reply_to: form.email,
+        },
+        publicKey
+      );
+
+      setSubmitted(true);
+      setForm(initialForm);
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setError('Something went wrong. Please try again or reach us on WhatsApp.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -410,13 +440,19 @@ export default function ContactPage() {
                     className={`btn btn-primary ${styles.submitBtn}`}
                     disabled={submitting}
                   >
-                    {submitting ? 'Opening WhatsApp...' : 'Send Message'}
+                    {submitting ? 'Sending...' : 'Send Message'}
                     <Send size={18} />
                   </button>
 
                   {submitted && (
                     <p className={styles.successMessage} role="status">
-                      Your message is ready in WhatsApp. Send it there to reach our team!
+                      ✅ Message sent! We&apos;ll get back to you within 24 hours.
+                    </p>
+                  )}
+
+                  {error && (
+                    <p className={styles.errorMessage} role="alert">
+                      ⚠️ {error}
                     </p>
                   )}
                 </form>
