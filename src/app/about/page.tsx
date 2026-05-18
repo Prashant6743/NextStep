@@ -274,9 +274,9 @@ export default function AboutPage() {
           <motion.div
             className={styles.heroImgWrap}
             style={{ y: heroImgY }}
-            initial={{ opacity: 0, x: 60, scale: 0.85 }}
+            initial={{ opacity: 0, x: 30, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.4, delay: 0, ease: 'easeOut' }}
           >
             <div className={styles.heroImgGlow} />
             <motion.div

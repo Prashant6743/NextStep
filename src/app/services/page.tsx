@@ -323,7 +323,7 @@ export default function ServicesPage() {
             <Link href="/contact" className="btn btn-primary">
               Book Free Consultation <ArrowRight size={16} />
             </Link>
-            <Link href="#gallery" className="btn btn-outline">
+            <Link href="/portfolio" className="btn btn-outline">
               View Gallery <Images size={15} />
             </Link>
           </motion.div>

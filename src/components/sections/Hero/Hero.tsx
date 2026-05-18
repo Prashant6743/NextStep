@@ -108,7 +108,7 @@ export default function Hero() {
           <Link href="/services" className={`btn btn-outline ${styles.ctaSecondary}`}>
             View Services
           </Link>
-          <Link href="/portfolio" className={styles.ctaGhost}>
+          <Link href="/services" className={styles.ctaGhost}>
             <div className={styles.playIcon}>
               <Play size={13} fill="currentColor" />
             </div>
