@@ -101,14 +101,14 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <Link href="#contact" className={`btn btn-primary ${styles.ctaPrimary}`}>
+          <Link href="/contact" className={`btn btn-primary ${styles.ctaPrimary}`}>
             <Sparkles size={16} />
             Get Started Free <ArrowRight size={18} />
           </Link>
-          <Link href="#services" className={`btn btn-outline ${styles.ctaSecondary}`}>
+          <Link href="/services" className={`btn btn-outline ${styles.ctaSecondary}`}>
             View Services
           </Link>
-          <Link href="#portfolio" className={styles.ctaGhost}>
+          <Link href="/portfolio" className={styles.ctaGhost}>
             <div className={styles.playIcon}>
               <Play size={13} fill="currentColor" />
             </div>

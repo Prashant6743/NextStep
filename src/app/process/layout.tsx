@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Our Process – Nextstep Careers',
+  title: 'Our Process – How We Work',
   description:
-    'Learn about our proven 4-step career growth process: understanding your goals, strategic planning, professional optimization, and final delivery with ongoing support.',
+    'Discover how Nextstep Careers transforms your career presence in simple steps: discovery, strategy, creation, and delivery. A clear process built around your goals.',
+  alternates: { canonical: 'https://nextstepcareers24.com/process' },
+  openGraph: { url: 'https://nextstepcareers24.com/process' },
 };
 
 export default function ProcessLayout({ children }: { children: React.ReactNode }) {

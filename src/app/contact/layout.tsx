@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us – Nextstep Careers',
+  title: 'Contact Us – Get a Free Consultation',
   description:
-    'Get in touch with Nextstep Careers. Fill out our contact form, reach us on WhatsApp, or email us to start your career transformation journey.',
+    'Ready to transform your career presence? Reach out to Nextstep Careers for a free consultation. We reply within 24 hours and are also available on WhatsApp.',
+  alternates: { canonical: 'https://nextstepcareers24.com/contact' },
+  openGraph: { url: 'https://nextstepcareers24.com/contact' },
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {

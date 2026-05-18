@@ -4,8 +4,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow-x: hidden;
-  overflow-y: visible;
   padding-top: 90px;
   padding-bottom: 48px;
 }
@@ -33,7 +31,6 @@
   height: 600px;
   background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, transparent 65%);
   border-radius: 50%;
-  animation: orbFloat1 12s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -45,7 +42,6 @@
   height: 500px;
   background: radial-gradient(circle, rgba(168, 85, 247, 0.14) 0%, transparent 65%);
   border-radius: 50%;
-  animation: orbFloat2 14s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -68,10 +64,6 @@
   filter: drop-shadow(0 0 60px rgba(124, 58, 237, 0.28));
   user-select: none;
   transform-origin: center center;
-  /* scroll-driven: scale 1 → 1.55 over the first viewport height */
-  animation: glassScrollScale linear both;
-  animation-timeline: scroll(root);
-  animation-range: 0px 100vh;
 }
 
 @media (min-width: 768px) {
